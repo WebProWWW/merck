@@ -1,0 +1,335 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+body
+    margin 0
+    font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    font-size 1rem
+    font-weight 300
+    -webkit-text-size-adjust 100%
+    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+
+.c-wrapper
+    mpd(0 auto, 10px)
+    max-width 1600px
+    color #212121
+
+.c-wrapper *
+    box-sizing border-box
+    font-weight 300
+
+
+.c-header-badge
+    padding 8px 15px
+    margin-bottom 10px
+    font-size 13px
+    background #F5F5F5
+    border-radius 50px
+    text-align center
+    position relative
+    z-index 10
+
+.c-header-space
+    background #F5F5F5
+    border-radius 15px 15px 0 0
+    position relative
+    height 100%
+    z-index 1
+    &:before
+    &:after
+        content ''
+        display block
+        width 15px
+        height 15px
+        position absolute
+        bottom 0
+        left -@width
+    &:before
+        background #F5F5F5
+    &:after
+        background white
+        border-radius 0 0 15px 0
+
+.c-progress
+    padding 15px 15px 1px
+    background #F5F5F5
+    border-radius 15px 0 0 0
+
+.c-progress-line
+    padding 8px 20px
+    background white
+    border-radius 50px
+    position relative
+    overflow hidden
+
+.c-progress-text
+    font-size 13px
+    position relative
+    color #522583
+    font-weight 500
+    z-index 5
+
+.c-progress-level
+    trans()
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    width 50%
+    background #E6D6F9
+    z-index 1
+
+.c-block-body
+    padding 15px 15px 1px
+    background #F5F5F5
+    border-radius 0 0 15px 15px
+
+.c-title
+    margin 0 0 15px
+    font-size 14px
+
+
+.c-item-group
+    mpd(0 0 10px, 15px 15px 1px)
+    background #EDEDED
+    border-radius 15px
+
+.c-item-num
+    margin-bottom 15px
+    padding 10px 0
+    width 50px
+    border-radius 10px
+    background #F5F5F5
+    font-size 20px
+    color #522583
+    font-weight 900
+    text-align center
+
+.c-item-label-text
+    margin-bottom 15px
+    font-size 14px
+
+.c-item-label-desc
+    margin-bottom 15px
+    margin-top -10px
+    font-size 11px
+    color #8E8E8E
+
+
+
+
+
+.c-field-input
+    appearance none
+    outline none
+    trans()
+    mpd(0 0 15px, 15px 20px)
+    font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    width 100%
+    border 1px solid #EDEDED
+    border-radius 50px
+    background #ffffff
+    font-size 14px
+    font-weight 300
+
+.c-field-input::placeholder
+    color #A7A7A7
+    font-weight 300
+
+.c-field-select
+    margin-bottom 15px
+    position relative
+
+.c-field-select-value
+    padding 15px 36px 15px 20px
+    border 1px solid #EDEDED
+    border-radius 50px
+    background #ffffff
+    font-size 14px
+    font-weight 300
+    white-space nowrap
+    overflow hidden
+    text-overflow ellipsis
+    user-select none
+
+.c-field-select-value:after
+    content ''
+    display block
+    width 13px
+    height @width
+    position absolute
+    right 20px
+    top 50%
+    margin-top -6px
+    background-repeat no-repeat
+    background-position center
+    background-image url('../../img/i-down.svg')
+
+.c-field-select-value.c-active:after
+    transform rotate(180deg)
+
+.c-field-select-options
+    trans()
+    padding 8px 0
+    position absolute
+    top 100%
+    left 0
+    right 0
+    margin-top 0
+    border-radius 25px
+    overflow hidden
+    background white
+    box-shadow 0 0 10px 0 alpha(black, .1)
+    font-size 14px
+    z-index 100
+    opacity 0
+    visibility hidden
+
+.c-field-select-options.c-active
+    visibility visible
+    opacity 1
+    margin-top 10px
+
+.c-field-select-option
+    padding 6px 20px
+    color #A7A7A7
+    user-select none
+    cursor pointer
+
+.c-field-select-option.c-active
+    color black
+
+.c-field-select-option:hover
+    color black
+
+.c-field-radio
+    mpd(0 -5px 15px, 0, flex)
+
+.c-field-radio-btn
+    mpd(0 5px, 15px 20px)
+    trans()
+    flex 1 0 0%
+    background white
+    border-radius 50px
+    font-size 14px
+    text-align center
+    user-select none
+    cursor pointer
+
+.c-field-radio-btn.active
+    background #522583
+    color white
+
+
+.c-btn
+    trans()
+    mpd(0 0 15px, 15px 20px)
+    border-radius 50px
+    font-size 14px
+    text-align center
+    user-select none
+    cursor pointer
+
+.c-btn-transparent
+    b(#656565)
+    background transparetn
+
+.c-btn-transparent:not(.c-btn-disabled):hover
+    // b(#39B8CE)
+    background #656565
+    color white
+
+.c-btn-primary
+    background #522583
+    color white
+
+.c-btn-primary:not(.c-btn-disabled):hover
+    background #E8308A
+
+.c-btn-red
+    background #E8308A
+    color white
+
+.c-btn-red:not(.c-btn-disabled):hover
+    background #522583
+
+.c-btn-lgray
+    background #F7F7F7
+    color #212121
+
+.c-btn-lgray:not(.c-btn-disabled):hover
+    background #522583
+    color white
+
+.c-btn-gray
+    background #656565
+    color white
+
+.c-btn-gray:not(.c-btn-disabled):hover
+    background #522583
+
+.c-btn-disabled
+    background #656565
+    color white
+    cursor not-allowed
+
+
+.fancybox__backdrop
+    background alpha(#240A41, .5)
+    backdrop-filter blur(8px)
+
+.f-button:focus-visible
+    outline none
+    box-shadow none
+
+// // .fancybox__content
+// //     padding 35px 20px 5px
+// //     background-color #DEE2EA
+// //     user-select text
+
+// // .is-compact .fancybox__content>.f-button.is-close-btn
+// //     background-color transparent
+
+.c-modal-result
+    max-width 1150px
+    width 100%
+    padding 20px 20px 5px
+    background-color #D7D9E5
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    background-image url('../../img/modal-bg.jpg')
+    border-radius 25px
+    line-height 1.1
+    font-weight 300
+
+.c-result-body
+    mpd(0 0 15px, 15px 15px 1px)
+    background white
+    border-radius 15px
+    color #522583
+
+.c-result-label
+    mpd(0 0 15px)
+    font-size 14px
+
+.c-result-title
+    mpd(0 0 15px)
+    font-size 18px
+
+.c-result-text
+    mpd(0 0 15px)
+    font-size 14px
+
+.c-result-info
+    mpd(0 0 15px, 15px, flex)
+    background-color #522583
+    border-radius 15px
+    color white
+    font-size 11px
+
+.c-result-info-icon
+    display block
+    margin-right 10px
+
+.nowrap
+    white-space nowrap

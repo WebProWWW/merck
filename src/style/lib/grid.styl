@@ -1,0 +1,78 @@
+
+.row
+    display flex
+    flex-wrap wrap
+
+.row.nowrap
+    flex-wrap nowrap
+
+.row > *
+    box-sizing border-box
+    flex-shrink 0
+    width 100%
+    max-width 100%
+
+onMedia(media='')
+
+    .row.align-items{media}-center
+        align-items center
+
+    .row.nowrap{media}
+        flex-wrap nowrap
+
+    .justify-content{media}-center
+        justify-content center
+
+    .col{media}-auto
+        flex 0 0 auto
+        width auto
+
+    .col{media}
+        flex 1 0 0%
+
+    for i in (1..100)
+        .col{media}-{i}
+            flex 0 0 auto
+            width i* 1%
+
+    for i in (0..25)
+        .row.g{media}-{i}
+            margin-right i * -1px
+            margin-left i * -1px
+
+        .row.g{media}-{i} > *
+            padding-right i * 1px
+            padding-left i * 1px
+
+
+onMedia()
+
+/*
+ * sm 576px
+ * * * * * * * * * * * * */
+@media (min-width: 576px)
+    onMedia('-sm')
+
+/*
+ * md 768px
+ * * * * * * * * * * * * */
+@media (min-width: 768px)
+    onMedia('-md')
+
+/*
+ * lg 992px
+ * * * * * * * * * * * * */
+@media (min-width: 992px)
+    onMedia('-lg')
+
+/*
+ * xl 1200px
+ * * * * * * * * * * * * */
+@media (min-width: 1200px)
+    onMedia('-xl')
+
+/*
+ * xxl 1400px
+ * * * * * * * * * * * * */
+@media (min-width: 1400px)
+    onMedia('-xxl')

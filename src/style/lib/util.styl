@@ -1,0 +1,153 @@
+
+/*
+ * Utils
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+onMedia(media='')
+    .d-{media}none
+        display none
+    .d-{media}block
+        display block
+    .d-{media}flex
+        display block
+    .mt-{media}auto
+        margin-top auto
+    .me-{media}auto
+        margin-right auto
+    .ms-{media}auto
+        margin-left auto
+    .align-self-{media}end
+        align-self flex-end
+
+    for i in (0..100)
+        .mb-{media}{i}
+            margin-bottom i * 1px
+        .mt-{media}{i}
+            margin-top i * 1px
+        .my-{media}{i}
+            margin-bottom i * 1px
+            margin-top i * 1px
+    for i in (0..10)
+        .order-{media}{i}
+            order i
+
+    // MAX WIDTH
+    for i in (1..20)
+        .maxw-{media}{i}
+            max-width i * 100 * 1px
+
+
+//     // FONT SIZE
+
+//     // for i in (1..100)
+//     //     .em-{media}{i}
+//     //         font-size i * .1 * 1em
+
+//     // // FONT WEIGHT
+
+//     // for i in (1..9)
+//     //     .fw-{media}{i}
+//     //         font-weight i * 100
+
+//     // // WIDTH
+
+//     // for i in (1..10)
+//     //     .width-{media}{i}
+//     //         width i * 100 * 1px
+
+//     // .width-{media}auto
+//     //     width auto
+
+//     // // HEIGHT
+
+//     // for i in (1..10)
+//     //     .height-{media}{i}
+//     //         height i * 100 * 1px
+
+//     // .height-{media}auto
+//     //     height auto
+
+//     // .maxw-{media}none
+//     //     max-width none
+
+//     // // MAX HEIGHT
+
+//     // for i in (1..10)
+//     //     .maxh-{media}{i}
+//     //         max-height i * 100 * 1px
+
+//     // .maxh-{media}none
+//     //     max-height none
+
+//     // // MIN WIDTH
+
+//     // for i in (1..10)
+//     //     .minw-{media}{i}
+//     //         min-width i * 100 * 1px
+
+//     // .minw-{media}none
+//     //     min-width none
+
+//     // // MIN HEIGHT
+
+//     // for i in (1..10)
+//     //     .minh-{media}{i}
+//     //         min-height i * 100 * 1px
+
+//     // .minh-{media}none
+//     //     min-height none
+
+//     // // BACKGROUND POSITION
+
+//     // .bg-y-{media}start
+//     //     background-position-y 0
+
+//     // .bg-y-{media}center
+//     //     background-position-y 50%
+
+//     // .bg-y-{media}end
+//     //     background-position-y 100%
+
+//     // .bg-x-{media}start
+//     //     background-position-y 0
+
+//     // .bg-x-{media}center
+//     //     background-position-y 50%
+
+//     // .bg-x-{media}end
+//     //     background-position-y 100%
+
+
+onMedia()
+
+
+// /*
+//  * sm                                                             ≥ 576px
+//  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@media (min-width: 576px)
+    onMedia('sm-')
+
+// /*
+//  * md                                                             ≥ 768px
+//  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@media (min-width: 768px)
+    onMedia('md-')
+
+// /*
+//  * lg                                                             ≥ 992px
+//  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@media (min-width: 992px)
+    onMedia('lg-')
+
+// /*
+//  * xl                                                            ≥ 1200px
+//  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@media (min-width: 1200px)
+    onMedia('xl-')
+
+// /*
+//  * xxl                                                           ≥ 1400px
+//  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@media (min-width: 1400px)
+    onMedia('xxl-')
