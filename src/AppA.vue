@@ -164,86 +164,83 @@ export default
                 H2.active = no
                 I2.active = no
 
-                if 0 <= A2_val <= .4
+                if 0 <= A2_val < .4
                     if B2_val is 1
                         D2.active = yes
+                        E2.active = yes
+                        F2.active = yes
+                        G2.active = yes
                         H2.active = yes
-                        if Number(A1.field.val) < 56
-                            if D2.field.val is 1 and H2.field.val is 1
-                                result.value = results(Number(F1.field.val) * 0.9).a1
-                            if D2.field.val is 1 and H2.field.val is 0
-                                result.value = results().k1
-                                if B1.field.val is 2
-                                    I2.active = yes
-                                    if I2.field.val is 1
-                                        result.value = results(Number(F1.field.val) * 1.6).b1
-                                    if I2.field.val is 0
-                                        result.value = results().k1
-                            if D2.field.val is 0 and H2.field.val is 1
-                                result.value = results(Number(F1.field.val) * 1.6).b1
-                            if D2.field.val is 0 and H2.field.val is 0
-                                result.value = results().k1
+                        E2yes = E2.field.val is 1
+                        F2yes = F2.field.val is 1
+                        G2yes = G2.field.val is 1
+                        H2yes = H2.field.val is 1
+                        I2yes = no
+                        result.value = results().k1
+                        if 56 > Number(A1.field.val)
+                            if B1.field.val is 2
+                                I2.active = yes
+                                I2yes = I2.field.val is 1
+                            if D2.field.val is 1
+                                if E2yes or F2yes or G2yes or H2yes or I2yes
+                                    result.value = results(Number(F1.field.val) * 0.9).a1
+                            if D2.field.val is 0
+                                if E2yes or F2yes or G2yes or H2yes or I2yes
+                                    result.value = results(Number(F1.field.val) * 1.6).b1
                         if 55 < Number(A1.field.val)
-                            if D2.field.val is 1 and H2.field.val is 1
-                                result.value = results(Number(F1.field.val) * 0.9).d1
-                            if D2.field.val is 1 and H2.field.val is 0
-                                result.value = results().k1
-                            if D2.field.val is 0 and H2.field.val is 1
-                                result.value = results(Number(F1.field.val) * 0.9).a1
-                            if D2.field.val is 0 and H2.field.val is 0
-                                result.value = results().k1
+                            if D2.field.val is 1
+                                if E2yes or F2yes or G2yes or H2yes or I2yes
+                                    result.value = results(Number(F1.field.val) * 0.9).d1
+                            if D2.field.val is 0
+                                if E2yes or F2yes or G2yes or H2yes or I2yes
+                                    result.value = results(Number(F1.field.val) * 1.6).a1
                     if B2_val is 2
                         result.value = results().e1
                     if B2_val is 3
                         result.value = results().f1
 
-                if .4 < A2_val <= 4
+                if .4 <= A2_val < 4
                     B2.field.options[2].disabled = yes
                     C2.active = yes
                     if B2_val is 1
-                        C2.field.options[0].disabled = no
-                        if C2.field.val is 0
-                            D2.active = yes
-                            H2.active = yes
+                        D2.active = yes
+                        E2.active = yes
+                        F2.active = yes
+                        G2.active = yes
+                        H2.active = yes
+                        E2yes = E2.field.val is 1
+                        F2yes = F2.field.val is 1
+                        G2yes = G2.field.val is 1
+                        H2yes = H2.field.val is 1
+                        I2yes = no
+                        if B1.field.val is 2
+                            I2.active = yes
+                            I2yes = I2.field.val is 1
+                        if H2.field.val is 1
                             if 56 > Number(A1.field.val)
-                                if D2.field.val is 1 and H2.field.val is 1
+                                if D2.field.val is 1
                                     result.value = results(Number(F1.field.val) * 0.9).g1
-                                if D2.field.val is 1 and H2.field.val is 0
-                                    result.value = results().n1
-                                    if B1.field.val is 2
-                                        I2.active = yes
-                                        if I2.field.val is 1
-                                            result.value = results(Number(F1.field.val) * 1.6).h1
-                                        if I2.field.val is 0
-                                            result.value = results().n1
-                                if D2.field.val is 0 and H2.field.val is 1
+                                if D2.field.val is 0
                                     result.value = results(Number(F1.field.val) * 1.6).h1
-                                if D2.field.val is 0 and H2.field.val is 0
-                                    result.value = results().n1
                             if 55 < Number(A1.field.val)
-                                if D2.field.val is 1 and H2.field.val is 1
+                                if D2.field.val is 1
                                     result.value = results(Number(F1.field.val) * 0.9).g1
-                                if D2.field.val is 1 and H2.field.val is 0
-                                    result.value = results().n1
-                                if D2.field.val is 0 and H2.field.val is 1
+                                if D2.field.val is 0
                                     result.value = results(Number(F1.field.val) * 0.9).j1
-                                if D2.field.val is 0 and H2.field.val is 0
-                                    result.value = results().n1
-                        if C2.field.val is 1
-                            H2.active = yes
-                            if H2.field.val is 0
+                        if H2.field.val is 0
+                            if C2.field.val is 1
                                 result.value = results().o1
-                        if (C2.field.val is 2) or (C2.field.val is 3)
-                            H2.active = yes
-                            if H2.field.val is 0
+                            if (C2.field.val is 2) or (C2.field.val is 3)
                                 result.value = results().p1
+                            if E2yes or F2yes or G2yes or I2yes
+                                result.value = results().dd1
                     if B2_val is 2
                         if C2.field.val is 1
                             result.value = results().l1
                         if (C2.field.val is 2) or (C2.field.val is 3)
                             result.value = results().m1
 
-                if 4 < A2_val <= 10
+                if 4 <= A2_val < 10
                     B2.field.options[2].disabled = yes
                     if B2_val is 1
                         D2.active = yes
@@ -336,7 +333,7 @@ export default
                                     if E2isNo and F2isNo and G2isNo
                                         result.value = results().y1
 
-                if 10 < A2_val
+                if 10 <= A2_val
                     B2.field.options[2].disabled = yes
                     D2.active = yes
                     C2.active = yes
@@ -397,7 +394,8 @@ export default
                     isD3_2 = D3.field.val is 2
                     isE3_1 = E3.field.val is 1
                     isE3_2 = E3.field.val is 2
-                    if 0 < Number(C3.field.val) < 2.5
+                    C3val = Number String(C3.field.val).replace ',', '.'
+                    if 0 < C3val < 2.5
                         if isD3_1 and isE3_1
                             result.value = results().b2
                             return yes
@@ -410,7 +408,7 @@ export default
                         if isD3_2 and isE3_2
                             result.value = results().e2
                             return yes
-                    if 2.5 <= Number(C3.field.val) < 4
+                    if 2.5 <= C3val < 4
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
                             result.value = results(Number(F1.field.val) * 2.3).f2
                             return yes
@@ -420,7 +418,7 @@ export default
                         if isD3_2 and isE3_2
                             result.value = results().h2
                             return yes
-                    if 4 <= Number(C3.field.val) < 10
+                    if 4 <= C3val < 10
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
                             result.value = results(Number(F1.field.val) * 2.3).i2
                             return yes
@@ -430,7 +428,7 @@ export default
                         if isD3_2 and isE3_2
                             result.value = results(Number(F1.field.val) * 1.2).l2
                             return yes
-                    if 10 <= Number(C3.field.val)
+                    if 10 <= C3val
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
                             result.value = results(Number(F1.field.val) * 2.3).m2
                             return yes
@@ -458,7 +456,7 @@ export default
                         C4.active = yes
                         if C4.field.val is 1
                             D4.active = yes
-                            result.value = results(Number(B3.field.val) * 1.6).d3
+                            result.value = results(Number(F1.field.val) * 1.6).d3
                         if (C4.field.val is 2) or (C4.field.val is 3)
                             F4.active = yes
                             G4.active = yes
@@ -468,9 +466,9 @@ export default
                             G4yes = G4.field.val is 1
                             H4yes = H4.field.val is 1
                             E4yes = E4.field.val is 1
-                            result.value = results(Number(B3.field.val) * 2.2).c3
+                            result.value = results(Number(F1.field.val) * 2.2).c3
                             if F4yes or G4yes or H4yes or E4yes or (Number(A1.field.val) > 60)
-                                result.value = results(Number(B3.field.val) * 1.6).d3
+                                result.value = results(Number(F1.field.val) * 1.6).d3
 
                 if A4.field.val is 2
                     B4.field.options[0].disabled = yes
@@ -482,15 +480,15 @@ export default
                     F4yes = F4.field.val is 1
                     G4yes = G4.field.val is 1
                     H4yes = H4.field.val is 1
-                    result.value = results(Number(B3.field.val) * 2.2).c3
+                    result.value = results(Number(F1.field.val) * 2.2).c3
                     if B1.field.val is 2
                         E4.active = yes
                         if E4.field.val is 1
-                            result.value = results(Number(B3.field.val) * 2.2).b3
+                            result.value = results(Number(F1.field.val) * 2.2).b3
                     if H4yes
-                        result.value = results(Number(B3.field.val) * 2.2).b3
+                        result.value = results(Number(F1.field.val) * 2.2).b3
                     if F4yes or G4yes or (Number(A1.field.val) > 60)
-                        result.value = results(Number(B3.field.val) * 1.6).d3
+                        result.value = results(Number(F1.field.val) * 1.6).d3
 
                 if A4.field.val is 3
                     B4.field.options[0].disabled = yes

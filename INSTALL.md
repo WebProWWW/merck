@@ -16,7 +16,7 @@ this.scriptAst = descriptor.script && parse(descriptor.script.content, descripto
 
 Сборка: `npm run prod`
 
-В проекте содержится 2 калькулятора
+В проекте 2 калькулятора
 
 ### "Рассчитать дозу Эутирокс"
 

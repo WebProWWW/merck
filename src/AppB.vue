@@ -83,7 +83,7 @@ export default
                 isResult.value = yes
                 A2_val = Number String(A2.field.val).replace ',', '.'
 
-                if 0 <= A2_val <= .4
+                if 0 <= A2_val < .4
                     result.value = results().a5
 
                 if A2_val > 4
@@ -103,13 +103,13 @@ export default
                 G3.active = no
                 H3.active = no
 
-                if 0 <= A3_val <= .4
+                if 0 <= A3_val < .4
                     result.value = results().b5
 
                 if A3_val > 4
                     result.value = results().c5
 
-                if .4 < A3_val <= 4
+                if .4 <= A3_val <= 4
                     B3.active = yes
                     C3.active = yes
                     D3.active = yes
