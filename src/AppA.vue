@@ -576,6 +576,15 @@ export default
             </div><!-- .col -->
             <div class="col-100 col-lg-auto ms-auto align-self-end">
                 <div class="maxw-lg-4">
+                    <div v-if="result.info_a">
+                        <div class="c-result-info">
+                            <img class="c-result-info-icon" width="23" height="23" src="@/img/i-info.svg">
+                            <div v-html="result.info_a"></div>
+                        </div>
+                    </div><!-- v-if -->
+                    <div v-else>&nbsp;</div>
+                </div>
+                <div class="maxw-lg-4">
                     <div v-if="result.info">
                         <div class="c-result-info">
                             <img class="c-result-info-icon" width="23" height="23" src="@/img/i-info.svg">

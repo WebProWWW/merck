@@ -15,7 +15,9 @@ export default
             type: Object
         isResult:
             type: [Boolean, Number]
-    emits: ['navigate', 'show-result']
+        isApply:
+            type: [Boolean, Number]
+    emits: ['navigate', 'show-result', 'item-event', 'apply']
 
     setup: (props, context) ->
 
@@ -44,12 +46,17 @@ export default
             context.emit 'navigate', step
             yes
 
+        onItemEvent = (e) ->
+            context.emit 'item-event', e
+            yes
+
         {
             items
             completedLength
             completePct
             totalLength
             onNavigate
+            onItemEvent
         }
 
 </script>
@@ -103,24 +110,32 @@ export default
         </div>
 
         <div v-for="(item, i) in items">
-            <item :model="item" :index="i"/>
+            <item :model="item" :index="i" @item-event="onItemEvent"/>
         </div>
 
         <div class="row g-5 justify-content-center mt-sm-15">
             <div class="col-100 col-sm-auto order-sm-2">
-                <div v-if="isResult">
+                <div v-if="isApply">
                     <btn
                         class="c-btn-primary"
-                        :disabled="!model.isComplete"
-                        @click="$emit('show-result')"
-                    >Узнать результат</btn>
+                        @click="$emit('apply')"
+                    >Рассчитать</btn>
                 </div>
                 <div v-else>
-                    <btn
-                        class="c-btn-primary"
-                        :disabled="!model.isComplete"
-                        @click="onNavigate(1)"
-                    >Следующий блок</btn>
+                    <div v-if="isResult">
+                        <btn
+                            class="c-btn-primary"
+                            :disabled="!model.isComplete"
+                            @click="$emit('show-result')"
+                        >Узнать результат</btn>
+                    </div>
+                    <div v-else>
+                        <btn
+                            class="c-btn-primary"
+                            :disabled="!model.isComplete"
+                            @click="onNavigate(1)"
+                        >Следующий блок</btn>
+                    </div>
                 </div>
             </div><!-- .col -->
 

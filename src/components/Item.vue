@@ -14,9 +14,17 @@ export default
             type: Object
         index:
             type: Number
-    # emits:
+    emits: [
+        'item-event'
+    ]
 
-    setup: (props, context) -> {}
+    setup: (props, context) ->
+        onItemEvent = (e) ->
+            context.emit 'item-event', e
+            yes
+        {
+            onItemEvent
+        }
 
 </script>
 
@@ -56,7 +64,7 @@ export default
                         <div class="c-item-field">
                             <field :model="model.field"/>
                             <div v-if="model.btn">
-                                <btn class="c-btn-primary" @click="$emit(model.btn.event)">
+                                <btn class="c-btn-primary" @click="onItemEvent(model.btn.event)">
                                     {{model.btn.label}}
                                 </btn>
                             </div>

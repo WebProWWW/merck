@@ -31,6 +31,7 @@ export default
 
         watch (-> props.openModal), (val) ->
             openModal() if val
+            modal?.close() unless val
             yes
 
         # onMounted ->

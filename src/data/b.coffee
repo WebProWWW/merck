@@ -85,7 +85,7 @@ export default -> [
                         }
                     ]
             }
-            # C3
+            # C2
             {
                 active: yes
                 sum: no
@@ -97,9 +97,9 @@ export default -> [
                     type: 'text'
                     placeholder: 'от 18 до 100'
                     val: ''
-                    validate: (val) -> validateNumber val, 18, 100
+                    validate: (val) -> validateNumber val, 0, 100
             }
-
+            # D2
             {
                 active: yes
                 sum: no
@@ -113,7 +113,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 0, 5000
             }
-
+            # E2
             {
                 active: yes
                 sum: no
@@ -130,7 +130,7 @@ export default -> [
                     label: 'Калькулятор EU-TIRADS'
                     event: 'block-tirads'
             }
-
+            # F2
             {
                 active: yes
                 sum: no
@@ -144,7 +144,31 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 5, 200
             }
-
+            # G2 (I2)
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Есть дополнительные подозрительные признаки'
+                    desc: ''
+                field:
+                    complete: no
+                    type: 'radio'
+                    val: ''
+                    options: [
+                        {
+                            label: 'Да'
+                            val: 1
+                            selected: no
+                        }
+                        {
+                            label: 'Нет'
+                            val: 0
+                            selected: no
+                        }
+                    ]
+            }
+            # H2 (G2)
             {
                 active: yes
                 sum: no
@@ -202,36 +226,12 @@ export default -> [
                         }
                     ]
             }
-
+            # I2 (H2)
             {
                 active: yes
                 sum: no
                 label:
                     text: 'Есть факторы риска агрессивных форм'
-                    desc: ''
-                field:
-                    complete: no
-                    type: 'radio'
-                    val: ''
-                    options: [
-                        {
-                            label: 'Да'
-                            val: 1
-                            selected: no
-                        }
-                        {
-                            label: 'Нет'
-                            val: 0
-                            selected: no
-                        }
-                    ]
-            }
-
-            {
-                active: yes
-                sum: no
-                label:
-                    text: 'Есть дополнительные подозрительные признаки'
                     desc: ''
                 field:
                     complete: no
@@ -420,6 +420,195 @@ export default -> [
                 label:
                     text: 'Операции на щитовидной железе в анамнезе'
                     desc: 'в том числе по поводу рака щитовидной железы'
+                field:
+                    complete: no
+                    type: 'radio'
+                    val: ''
+                    options: [
+                        {
+                            label: 'Да'
+                            val: 1
+                            selected: no
+                        }
+                        {
+                            label: 'Нет'
+                            val: 0
+                            selected: no
+                        }
+                    ]
+            }
+        ]
+    }
+
+    # TIRADS
+    {
+        num: 2
+        name: 'Блок 2'
+        label: 'EU-TIRADS'
+        title: 'Калькулятор EU-TIRADS'
+        isComplete: no
+        items: [
+            # A4
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Эхоструктура'
+                    desc: ''
+                field:
+                    complete: no
+                    type: 'select'
+                    # placeholder: 'Введите'
+                    val: ''
+                    label: ''
+                    options: [
+                        {
+                            label: 'Кистозная или почти полностью кистозная'
+                            val: 1
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Губчатая'
+                            val: 2
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Смешанная солидно-кистозная'
+                            val: 3
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Солидная или почти полностью солидная'
+                            val: 4
+                            selected: no
+                            disabled: no
+                        }
+                    ]
+            }
+            # B4
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Эхогенность'
+                    desc: ''
+                field:
+                    complete: no
+                    type: 'select'
+                    # placeholder: 'Введите'
+                    val: ''
+                    label: ''
+                    options: [
+                        {
+                            label: 'Анэхогенная'
+                            val: 1
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Гиперэхогенная'
+                            val: 2
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Изоэхогенная'
+                            val: 3
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Гипоэхогенная'
+                            val: 4
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Выраженно гипоэхогенная'
+                            val: 5
+                            selected: no
+                            disabled: no
+                        }
+                    ]
+            }
+            # C4
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Форма'
+                    desc: ''
+                field:
+                    complete: no
+                    type: 'select'
+                    # placeholder: 'Введите'
+                    val: ''
+                    label: ''
+                    options: [
+                        {
+                            label: 'Шире-чем-выше'
+                            val: 1
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'Выше-чем-шире'
+                            val: 2
+                            selected: no
+                            disabled: no
+                        }
+                    ]
+            }
+            # D4
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Контур'
+                    desc: ''
+                field:
+                    complete: no
+                    type: 'select'
+                    # placeholder: 'Введите'
+                    val: ''
+                    label: ''
+                    options: [
+                        {
+                            label: 'ровный'
+                            val: 1
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'не определяется'
+                            val: 2
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'неровный или дольчатый'
+                            val: 3
+                            selected: no
+                            disabled: no
+                        }
+                        {
+                            label: 'экстратиреоидное распространение'
+                            val: 4
+                            selected: no
+                            disabled: no
+                        }
+                    ]
+            }
+            # E4
+            {
+                active: yes
+                sum: no
+                label:
+                    text: 'Микрокальцинаты'
+                    desc: ''
                 field:
                     complete: no
                     type: 'radio'
