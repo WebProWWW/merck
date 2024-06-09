@@ -577,25 +577,25 @@ export default -> [
                     label: ''
                     options: [
                         {
-                            label: 'ровный'
+                            label: 'Ровный'
                             val: 1
                             selected: no
                             disabled: no
                         }
                         {
-                            label: 'не определяется'
+                            label: 'Не определяется'
                             val: 2
                             selected: no
                             disabled: no
                         }
                         {
-                            label: 'неровный или дольчатый'
+                            label: 'Неровный или дольчатый'
                             val: 3
                             selected: no
                             disabled: no
                         }
                         {
-                            label: 'экстратиреоидное распространение'
+                            label: 'Экстратиреоидное распространение'
                             val: 4
                             selected: no
                             disabled: no
