@@ -5,7 +5,7 @@ validateNumber = (val, min=0, max=Infinity) ->
     min <= val <= max
 
 export default -> [
-    # 0 Общие вопросы
+    # Общие вопросы
     {
         num: 1
         name: 'Блок 1'
@@ -13,7 +13,7 @@ export default -> [
         title: 'Заполните основную информацию о пациенте'
         isComplete: no
         items: [
-            # 0 - A1
+            # A1
             {
                 active: yes
                 sum: no
@@ -27,7 +27,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 18, 100
             }
-            # 1 - B1
+            # B1
             {
                 active: yes
                 sum: no
@@ -50,7 +50,7 @@ export default -> [
                         }
                     ]
             }
-            # 2 - C1
+            # C1
             {
                 active: no
                 sum: no
@@ -73,7 +73,7 @@ export default -> [
                         }
                     ]
             }
-            # 3 - D1
+            # D1
             {
                 active: no
                 sum: no
@@ -98,7 +98,7 @@ export default -> [
                         }
                     ]
             }
-            # 4 - E1
+            # E1
             {
                 active: no
                 sum: no
@@ -128,7 +128,7 @@ export default -> [
                         }
                     ]
             }
-            # 5 - F1
+            # F1
             {
                 active: yes
                 sum: no
@@ -142,7 +142,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 1, 300
             }
-            # 6 - G1
+            # G1
             {
                 active: yes
                 sum: no
@@ -156,7 +156,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 1, 300
             }
-            # 7 - H1
+            # H1
             {
                 active: yes
                 sum: yes
@@ -171,7 +171,7 @@ export default -> [
         ]
     }
 
-    # 1 Гипотиреоз
+    # Гипотиреоз
     {
         num: 2
         name: 'Блок 2'
@@ -179,7 +179,7 @@ export default -> [
         title: 'Внесите данные о гипотиреозе'
         isComplete: no
         items: [
-            # 0 - A2
+            # A2
             {
                 active: yes
                 sum: no
@@ -193,7 +193,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 0, 1000
             }
-            # 1 - B2
+            # B2
             {
                 active: yes
                 sum: no
@@ -227,7 +227,7 @@ export default -> [
                         }
                     ]
             }
-            # 2 - C2
+            # C2
             {
                 active: no
                 sum: no
@@ -263,7 +263,7 @@ export default -> [
                         }
                     ]
             }
-            # 3 - D2
+            # D2
             {
                 active: no
                 sum: no
@@ -287,7 +287,7 @@ export default -> [
                         }
                     ]
             }
-            # 4 - E2
+            # E2
             {
                 active: no
                 sum: no
@@ -311,7 +311,7 @@ export default -> [
                         }
                     ]
             }
-            # 5 - F2
+            # F2
             {
                 active: no
                 sum: no
@@ -335,13 +335,13 @@ export default -> [
                         }
                     ]
             }
-            # 6 - G2
+            # G2
             {
                 active: no
                 sum: no
                 label:
                     text: 'Наличие специфических факторов риска'
-                    desc: 'в т.ч. РЙТ, операции на щитовидной железе в анамнезе'
+                    desc: 'в т. ч. РЙТ, операции на щитовидной железе в анамнезе'
                 field:
                     complete: no
                     type: 'radio'
@@ -359,13 +359,13 @@ export default -> [
                         }
                     ]
             }
-            # 7 - H2
+            # H2
             {
                 active: no
                 sum: no
                 label:
-                    text: 'Есть фаткоры риска вторичного гипотиеоза'
-                    desc: 'объемное образование в области гипофиза, травма головы, облучение головы и шеи'
+                    text: 'Есть факторы риска вторичного гипотиреоза'
+                    desc: 'объёмное образование в области гипофиза, травма головы, облучение головы и шеи'
                 field:
                     complete: no
                     type: 'radio'
@@ -383,7 +383,7 @@ export default -> [
                         }
                     ]
             }
-            # 8 - I2
+            # I2
             {
                 active: no
                 sum: no
@@ -410,7 +410,7 @@ export default -> [
         ]
     }
 
-    # 2 Беременность
+    # Беременность
     {
         num: 3
         name: 'Блок 3'
@@ -423,7 +423,7 @@ export default -> [
                 active: yes
                 sum: no
                 label:
-                    text: 'Прием левотироксина до наступления беременности'
+                    text: 'Приём левотироксина до наступления беременности'
                     desc: ''
                 field:
                     complete: no
@@ -461,7 +461,7 @@ export default -> [
                 active: no
                 sum: no
                 label:
-                    text: 'Введите уровень ТТГ'
+                    text: 'Уровень ТТГ'
                     desc: ''
                 field:
                     complete: no
@@ -475,7 +475,7 @@ export default -> [
                 active: no
                 sum: no
                 label:
-                    text: 'Введите уровень Т4св'
+                    text: 'Уровень Т4св'
                     desc: ''
                 field:
                     complete: no
@@ -523,7 +523,7 @@ export default -> [
         ]
     }
 
-    # 3 ВДРЩЖ
+    # ВДРЩЖ
     {
         num: 4
         name: 'Блок 4'

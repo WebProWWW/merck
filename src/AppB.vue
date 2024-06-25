@@ -130,7 +130,7 @@ export default
                 A2val = Number String(A2.field.val).replace ',', '.'
 
                 if 0 <= A2val < .4
-                    result.value = results().a5
+                    result.value = results().A5
 
                 if .4 < A2val
                     if tiradsVal

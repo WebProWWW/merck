@@ -326,7 +326,7 @@ export default -> [
                 active: no
                 sum: no
                 label:
-                    text: 'Узловое образование щитовидной железы, случайно выявленные при КТ шеи/ПЭТ/УЗДГ БЦА'
+                    text: 'Узловое образование щитовидной железы, случайно выявленное при КТ шеи/ ПЭТ/УЗДГ БЦА'
                 field:
                     complete: no
                     type: 'radio'
@@ -549,13 +549,13 @@ export default -> [
                     label: ''
                     options: [
                         {
-                            label: 'Шире-чем-выше'
+                            label: 'Шире, чем выше'
                             val: 1
                             selected: no
                             disabled: no
                         }
                         {
-                            label: 'Выше-чем-шире'
+                            label: 'Выше, чем шире'
                             val: 2
                             selected: no
                             disabled: no
