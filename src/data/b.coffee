@@ -4,7 +4,7 @@ validateNumber = (val, min=0, max=Infinity) ->
     min <= val <= max
 
 export default -> [
-    # Блок 1 Внесите данные
+    # Блок 1
     {
         num: 1
         name: 'Блок 1'
@@ -144,7 +144,7 @@ export default -> [
                     val: ''
                     validate: (val) -> validateNumber val, 5, 200
             }
-            # G2 (I2)
+            # G2
             {
                 active: yes
                 sum: no
@@ -168,7 +168,7 @@ export default -> [
                         }
                     ]
             }
-            # H2 (G2)
+            # H2
             {
                 active: yes
                 sum: no
@@ -226,7 +226,7 @@ export default -> [
                         }
                     ]
             }
-            # I2 (H2)
+            # I2
             {
                 active: yes
                 sum: no

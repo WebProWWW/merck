@@ -49,19 +49,19 @@ export default
             I2: blocks[1].items[8]# Есть факторы риска агрессивных форм
 
             A3: blocks[2].items[0]# Введите уровень ТТГ
-            B3: blocks[2].items[1]
-            C3: blocks[2].items[2]
-            D3: blocks[2].items[3]
-            E3: blocks[2].items[4]
-            F3: blocks[2].items[5]
-            G3: blocks[2].items[6]
-            H3: blocks[2].items[7]
+            B3: blocks[2].items[1]# Пальпируемое образование на шее
+            C3: blocks[2].items[2]# Увеличение шейных лимфоузлов
+            D3: blocks[2].items[3]# Узловое образование щитовидной железы, ...
+            E3: blocks[2].items[4]# Семейный анамнез медуллярного рака щитовидной железы
+            F3: blocks[2].items[5]# Облучение головы и шеи в анамнезе
+            G3: blocks[2].items[6]# Паралич голосовой связки
+            H3: blocks[2].items[7]# Операции на щитовидной железе в анамнезе
 
-            A4: blocks[3].items[0]
-            B4: blocks[3].items[1]
-            C4: blocks[3].items[2]
-            D4: blocks[3].items[3]
-            E4: blocks[3].items[4]
+            A4: blocks[3].items[0]# Эхоструктура
+            B4: blocks[3].items[1]# Эхогенность
+            C4: blocks[3].items[2]# Форма
+            D4: blocks[3].items[3]# Контур
+            E4: blocks[3].items[4]# Микрокальцинаты
         }
 
         watchFields = ->
@@ -132,7 +132,7 @@ export default
                 if 0 <= A2val < .4
                     result.value = results().A5
 
-                if .4 < A2val
+                if .4 <= A2val
                     if tiradsVal
                         E2.field.val = tiradsVal
                         tiradsVal = 0
@@ -202,6 +202,15 @@ export default
                                         result.value = results().l5 if H2val is 4
                                         result.value = results().m5 if H2val is 5
                                         result.value = results().n5 if H2val is 6
+                                if 10 <= F2val
+                                    H2.active = yes
+                                    result.value = results().h5 if H2val is 0
+                                    result.value = results().i5 if H2val is 1
+                                    result.value = results().j5 if H2val is 2
+                                    result.value = results().k5 if H2val is 3
+                                    result.value = results().l5 if H2val is 4
+                                    result.value = results().m5 if H2val is 5
+                                    result.value = results().n5 if H2val is 6
                 return yes
 
             if currentBlock.value is 2
