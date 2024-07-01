@@ -24,6 +24,7 @@ export default
         isOpenResult = ref no
         isResult = ref no
         result = ref {}
+        doseGrow = 0
 
         watchFields = ->
             {
@@ -119,7 +120,7 @@ export default
 
             } = blockItems()
 
-            F1val = Number F1.field.val
+            # F1val = Number F1.field.val
             A1val = Number A1.field.val
             B1val = Number B1.field.val
 
@@ -128,26 +129,33 @@ export default
 
             # 0 Общие вопросы
             if currentBlock.value is 0
+                F1val = Number F1.field.val
+                G1val = Number G1.field.val
+                C1val = Number C1.field.val
                 nextBlock = 1
-                C1.active = B1.field.val is 2
-                if C1.active and C1.field.val is 1
+                C1.active = B1val is 2
+                if C1.active and C1val is 1
                     nextBlock = 2
                 D1.active = no
                 E1.active = no
-                if (C1.active and C1.field.val is 0) or B1.field.val is 1
+                if (C1.active and C1val is 0) or B1val is 1
                     D1.active = yes
                     if D1.field.val is 1
                         E1.active = yes
                         if E1.field.val is 1
                             nextBlock = 3
                 # Индекс массы тела
-                h = Number(G1.field.val) / 100
+                h = G1val / 100
                 I = ''
                 if F1val > 0 and h > 0
                     I = F1val / (h * h)
                     I = Math.round(I * 10) / 10
                     I = 100 if I > 100
                     I = 0 if I < 0
+                doseGrow = F1val
+                if I > 30
+                    doseGrow = G1val - 100
+                    doseGrow = doseGrow * .9 if B1val is 2
                 H1.field.val = I
                 return yes
 
@@ -188,22 +196,22 @@ export default
                         I2yes = no
                         result.value = results().D1
                         if 56 > A1val
-                            if B1.field.val is 2
+                            if B1val is 2
                                 I2.active = yes
                                 I2yes = I2.field.val is 1
                             if D2.field.val is 1
                                 if E2yes or F2yes or G2yes or H2yes or I2yes
-                                    result.value = results(F1val * 0.9).C1
+                                    result.value = results(doseGrow * 0.9).C1
                             if D2.field.val is 0
                                 if E2yes or F2yes or G2yes or H2yes or I2yes
-                                    result.value = results(F1val * 1.6).E1
+                                    result.value = results(doseGrow * 1.6).E1
                         if 55 < A1val
                             if D2.field.val is 1
                                 if E2yes or F2yes or G2yes or H2yes or I2yes
-                                    result.value = results(F1val * 0.9).F1
+                                    result.value = results(doseGrow * 0.9).F1
                             if D2.field.val is 0
                                 if E2yes or F2yes or G2yes or H2yes or I2yes
-                                    result.value = results(F1val * 0.9).C1
+                                    result.value = results(doseGrow * 0.9).C1
                     if B2_val is 2
                         result.value = results().A1
                     if B2_val is 3
@@ -232,20 +240,20 @@ export default
                         G2yes = G2.field.val is 1
                         H2yes = H2.field.val is 1
                         I2yes = no
-                        if B1.field.val is 2
+                        if B1val is 2
                             I2.active = yes
                             I2yes = I2.field.val is 1
                         if H2.field.val is 1
                             if 56 > A1val
                                 if D2.field.val is 1
-                                    result.value = results(F1val * 0.9).G1
+                                    result.value = results(doseGrow * 0.9).G1
                                 if D2.field.val is 0
-                                    result.value = results(F1val * 1.6).K1
+                                    result.value = results(doseGrow * 1.6).K1
                             if 55 < A1val
                                 if D2.field.val is 1
-                                    result.value = results(F1val * 0.9).G1
+                                    result.value = results(doseGrow * 0.9).G1
                                 if D2.field.val is 0
-                                    result.value = results(F1val * 0.9).H1
+                                    result.value = results(doseGrow * 0.9).H1
                         if H2.field.val is 0
                             if C2.field.val is 1
                                 result.value = results().L1
@@ -275,14 +283,14 @@ export default
                         D2.active = yes
                         if 56 > A1val
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).O1
+                                result.value = results(doseGrow * 0.9).O1
                             if D2.field.val is 0
-                                result.value = results(F1val * 1.6).P1
+                                result.value = results(doseGrow * 1.6).P1
                         if 55 < A1val
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).O1
+                                result.value = results(doseGrow * 0.9).O1
                             if D2.field.val is 0
-                                result.value = results(F1val * 0.9).Q1
+                                result.value = results(doseGrow * 0.9).Q1
                     if B2_val is 2
                         C2.active = yes
                         D2.active = yes
@@ -295,56 +303,56 @@ export default
                         I2isYes = no
                         if C2.field.val is 1
                             if 56 > A1val
-                                if B1.field.val is 2
+                                if B1val is 2
                                     I2.active = yes
                                     I2isYes = I2.field.val is 1
                                 if D2.field.val is 1
-                                    result.value = results(F1val * 0.9).R1
+                                    result.value = results(doseGrow * 0.9).R1
                                     if I2isYes
-                                        result.value = results(F1val * 0.9).S1
+                                        result.value = results(doseGrow * 0.9).S1
                                 if D2.field.val is 0
-                                    result.value = results(F1val).T1
+                                    result.value = results(doseGrow).T1
                                     if I2isYes
-                                        result.value = results(F1val).U1
+                                        result.value = results(doseGrow).U1
                             if 55 < A1val
-                                result.value = results(F1val * 0.9).R1
+                                result.value = results(doseGrow * 0.9).R1
                         if C2.field.val is 2
                             if 56 > A1val
-                                if B1.field.val is 2
+                                if B1val is 2
                                     I2.active = yes
                                     I2isYes = I2.field.val is 1
                                 if D2.field.val is 1
-                                    result.value = results(F1val * 0.9).R1
+                                    result.value = results(doseGrow * 0.9).R1
                                     if I2isYes
-                                        result.value = results(F1val * 0.9).S1
+                                        result.value = results(doseGrow * 0.9).S1
                                 if D2.field.val is 0
                                     result.value = results().V1
                                     if E2isYes or F2isYes or G2isYes
-                                        result.value = results(F1val).T1
+                                        result.value = results(doseGrow).T1
                                     if I2isYes
-                                        result.value = results(F1val).U1
+                                        result.value = results(doseGrow).U1
                             if 55 < A1val
-                                result.value = results(F1val * 0.9).R1
+                                result.value = results(doseGrow * 0.9).R1
                                 if D2.field.val is 0
                                     if not E2isYes and not F2isYes and not G2isYes
                                         result.value = results().V1
                         if C2.field.val is 3
                             if 56 > A1val
-                                if B1.field.val is 2
+                                if B1val is 2
                                     I2.active = yes
                                     I2isYes = I2.field.val is 1
                                 if D2.field.val is 1
-                                    result.value = results(F1val * 0.9).R1
+                                    result.value = results(doseGrow * 0.9).R1
                                     if I2isYes
-                                        result.value = results(F1val * 0.9).S1
+                                        result.value = results(doseGrow * 0.9).S1
                                 if D2.field.val is 0
                                     result.value = results().W1
                                     if E2isYes or F2isYes or G2isYes
-                                        result.value = results(F1val).T1
+                                        result.value = results(doseGrow).T1
                                     if I2isYes
-                                        result.value = results(F1val).U1
+                                        result.value = results(doseGrow).U1
                             if 55 < A1val
-                                result.value = results(F1val * 0.9).R1
+                                result.value = results(doseGrow * 0.9).R1
                                 if D2.field.val is 0
                                     if not E2isYes and not F2isYes and not G2isYes
                                         result.value = results().W1
@@ -365,36 +373,36 @@ export default
                     C2.active = yes
                     if B2_val is 1
                         if 56 > A1val
-                            result.value = results(F1val * 1.6).P1
+                            result.value = results(doseGrow * 1.6).P1
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).O1
+                                result.value = results(doseGrow * 0.9).O1
                                 
                         if 55 < A1val
-                            result.value = results(F1val * 0.9).Q1
+                            result.value = results(doseGrow * 0.9).Q1
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).O1
+                                result.value = results(doseGrow * 0.9).O1
                     if B2_val is 2
                         if 56 > A1val
                             E2.active = yes
                             E2isYes = E2.field.val is 1
                             I2isYes = no
-                            if B1.field.val is 2
+                            if B1val is 2
                                 I2.active = yes
                                 I2isYes = I2.field.val is 1
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).X1
+                                result.value = results(doseGrow * 0.9).X1
                                 if I2isYes
-                                    result.value = results(F1val * 0.9).S1
+                                    result.value = results(doseGrow * 0.9).S1
                             if D2.field.val is 0
                                 result.value = results().Y1
                                 if E2isYes
-                                    result.value = results(F1val).Z1
+                                    result.value = results(doseGrow).Z1
                                 if I2isYes
-                                    result.value = results(F1val).U1
+                                    result.value = results(doseGrow).U1
                         if 55 < A1val
-                            result.value = results(F1val * 0.9).AA1
+                            result.value = results(doseGrow * 0.9).AA1
                             if D2.field.val is 1
-                                result.value = results(F1val * 0.9).X1
+                                result.value = results(doseGrow * 0.9).X1
 
                 return yes
 
@@ -431,30 +439,30 @@ export default
                             return yes
                     if 2.5 <= C3val < 4
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
-                            result.value = results(F1val * 2.3).F2
+                            result.value = results(doseGrow * 2.3).F2
                             return yes
                         if isD3_2 and isE3_1
-                            result.value = results(F1val * 1.2).G2
+                            result.value = results(doseGrow * 1.2).G2
                             return yes
                         if isD3_2 and isE3_2
                             result.value = results().H2
                             return yes
                     if 4 <= C3val < 10
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
-                            result.value = results(F1val * 2.3).F2
+                            result.value = results(doseGrow * 2.3).F2
                             return yes
                         if isD3_2 and isE3_1
-                            result.value = results(F1val * 1.2).I2
+                            result.value = results(doseGrow * 1.2).I2
                             return yes
                         if isD3_2 and isE3_2
-                            result.value = results(F1val * 1.2).G2
+                            result.value = results(doseGrow * 1.2).G2
                             return yes
                     if 10 <= C3val
                         if (isD3_1 and isE3_1) or (isD3_1 and isE3_2)
-                            result.value = results(F1val * 2.3).F2
+                            result.value = results(doseGrow * 2.3).F2
                             return yes
                         if (isD3_2 and isE3_1) or (isD3_2 and isE3_2)
-                            result.value = results(F1val * 2.3).J2
+                            result.value = results(doseGrow * 2.3).J2
                             return yes
                 return yes
 
@@ -479,19 +487,19 @@ export default
                         C4.active = yes
                         if C4val is 1
                             D4.active = yes
-                            result.value = results(F1val * 1.6).D3
+                            result.value = results(doseGrow * 1.6).D3
                         if C4val is 2 or C4val is 3
                             F4.active = yes
                             G4.active = yes
                             H4.active = yes
-                            E4.active = B1.field.val is 2
+                            E4.active = B1val is 2
                             F4yes = F4.field.val is 1
                             G4yes = G4.field.val is 1
                             H4yes = H4.field.val is 1
                             E4yes = E4.field.val is 1
-                            result.value = results(F1val * 2.2).B3
+                            result.value = results(doseGrow * 2.2).B3
                             if F4yes or G4yes or H4yes or E4yes or (A1val > 60)
-                                result.value = results(F1val * 1.6).D3
+                                result.value = results(doseGrow * 1.6).D3
 
                 if A4val is 2
                     B4.field.options[0].disabled = yes
@@ -503,22 +511,22 @@ export default
                     G4yes = G4.field.val is 1
                     H4yes = H4.field.val is 1
                     E4yes = no
-                    result.value = results(F1val * 2.2).C3
+                    result.value = results(doseGrow * 2.2).C3
                     if B1val is 2
                         E4.active = yes
                         E4yes = E4.field.val is 1
                     if H4yes or E4yes
-                        result.value = results(F1val * 2.2).B3
+                        result.value = results(doseGrow * 2.2).B3
                     if F4yes or G4yes or (A1val > 60)
-                        result.value = results(F1val * 1.6).D3
+                        result.value = results(doseGrow * 1.6).D3
 
                 if A4val is 3
                     B4.field.options[0].disabled = yes
                     B4.field.val = B4.field.options[1].val
                     G4.active = yes
-                    result.value = results(F1val * 2.2).C3
+                    result.value = results(doseGrow * 2.2).C3
                     if G4.field.val is 1
-                        result.value = results(F1val * 2.2).B3
+                        result.value = results(doseGrow * 2.2).B3
                 return yes
 
             yes
