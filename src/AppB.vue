@@ -19,7 +19,7 @@ export default
 
     setup: (props, context) ->
         currentBlock = ref 0
-        # currentBlock = ref 3
+        # currentBlock = ref 1
         nextBlock = 1
         prevBlock = 0
         blocks = reactive data()
@@ -129,8 +129,22 @@ export default
                 I2.active = no
                 A2val = Number String(A2.field.val).replace ',', '.'
 
+                # TEST START
+                # A2val = .1
+                # TEST END
+
                 if 0 <= A2val < .4
                     result.value = results().A5
+
+                # TEST START
+                # A2val = .5
+                # B2.field.val = 1
+                # D2.field.val = 11
+                # C2.field.val = 21
+                # E2.field.val = 5
+                # F2.field.val = 11
+                # G2.field.val = 1
+                # TEST END
 
                 if .4 <= A2val
                     if tiradsVal
@@ -143,74 +157,73 @@ export default
                     F2val = Number String(F2.field.val).replace ',', '.'
                     H2val = Number String(H2.field.val).replace ',', '.'
                     G2yes = G2.field.val is 1
-                    G2no = G2.field.val is 0
                     isM = B2.field.val is 1
                     isW = B2.field.val is 2
                     if (isM and (12 <= D2val <= 100)) or (isW and (5 <= D2val <= 100))
-                        result.value = results().f5
+                        result.value = results().F5
                     if 100 < D2val
-                        result.value = results().g5
+                        result.value = results().G5
                     if (isM and 12 > D2val) or (isW and 5 > D2val)
                         if 20 > C2val
                             H2.active = yes
-                            result.value = results().h5 if H2val is 0
-                            result.value = results().i5 if H2val is 1
-                            result.value = results().j5 if H2val is 2
-                            result.value = results().k5 if H2val is 3
-                            result.value = results().l5 if H2val is 4
-                            result.value = results().m5 if H2val is 5
-                            result.value = results().n5 if H2val is 6
+                            result.value = results().H5 if H2val is 0
+                            result.value = results().I5 if H2val is 1
+                            result.value = results().J5 if H2val is 2
+                            result.value = results().K5 if H2val is 3
+                            result.value = results().L5 if H2val is 4
+                            result.value = results().M5 if H2val is 5
+                            result.value = results().N5 if H2val is 6
                         if 20 <= C2val
                             E2.active = yes
                             F2.active = yes
                             if E2val is 2
-                                result.value = results().o5 if 5 <= F2val < 10
-                                result.value = results().p5 if 10 <= F2val
+                                result.value = results().O5 if 5 <= F2val <= 10
+                                result.value = results().P5 if 10 < F2val
                             if E2val is 3
-                                result.value = results().q5 if 5 <= F2val < 10
-                                result.value = results().r5 if 10 <= F2val < 20
-                                if 20 <= F2val
+                                result.value = results().Q5 if 5 <= F2val <= 10
+                                result.value = results().R5 if 10 < F2val <= 20
+                                if 20 < F2val
                                     H2.active = yes
-                                    result.value = results().h5 if H2val is 0
-                                    result.value = results().i5 if H2val is 1
-                                    result.value = results().j5 if H2val is 2
-                                    result.value = results().k5 if H2val is 3
-                                    result.value = results().l5 if H2val is 4
-                                    result.value = results().m5 if H2val is 5
-                                    result.value = results().n5 if H2val is 6
+                                    result.value = results().U5 if H2val is 0
+                                    result.value = results().II5 if H2val is 1
+                                    result.value = results().J5 if H2val is 2
+                                    result.value = results().K5 if H2val is 3
+                                    result.value = results().LL5 if H2val is 4
+                                    result.value = results().M5 if H2val is 5
+                                    result.value = results().N5 if H2val is 6
                             if E2val is 4
-                                result.value = results().s5 if 5 <= F2val < 15
-                                if 15 <= F2val
+                                result.value = results().S5 if 5 <= F2val <= 15
+                                if 15 < F2val
                                     H2.active = yes
-                                    result.value = results().h5 if H2val is 0
-                                    result.value = results().i5 if H2val is 1
-                                    result.value = results().j5 if H2val is 2
-                                    result.value = results().k5 if H2val is 3
-                                    result.value = results().l5 if H2val is 4
-                                    result.value = results().m5 if H2val is 5
-                                    result.value = results().n5 if H2val is 6
+                                    result.value = results().UU5 if H2val is 0
+                                    result.value = results().I5 if H2val is 1
+                                    result.value = results().J5 if H2val is 2
+                                    result.value = results().KK5 if H2val is 3
+                                    result.value = results().L5 if H2val is 4
+                                    result.value = results().M5 if H2val is 5
+                                    result.value = results().N5 if H2val is 6
                             if E2val is 5
-                                if 5 <= F2val < 10
+                                if 5 <= F2val <= 10
                                     G2.active = yes
-                                    result.value = results().t5 if G2no
+                                    result.value = results().T5
                                     if G2yes
                                         H2.active = yes
-                                        result.value = results().h5 if H2val is 0
-                                        result.value = results().i5 if H2val is 1
-                                        result.value = results().j5 if H2val is 2
-                                        result.value = results().k5 if H2val is 3
-                                        result.value = results().l5 if H2val is 4
-                                        result.value = results().m5 if H2val is 5
-                                        result.value = results().n5 if H2val is 6
+                                        result.value = results().UUU5 if H2val is 0
+                                        result.value = results().I5 if H2val is 1
+                                        result.value = results().JJ5 if H2val is 2
+                                        result.value = results().K5 if H2val is 3
+                                        result.value = results().L5 if H2val is 4
+                                        result.value = results().M5 if H2val is 5
+                                        result.value = results().N5 if H2val is 6
                                 if 10 <= F2val
                                     H2.active = yes
-                                    result.value = results().h5 if H2val is 0
-                                    result.value = results().i5 if H2val is 1
-                                    result.value = results().j5 if H2val is 2
-                                    result.value = results().k5 if H2val is 3
-                                    result.value = results().l5 if H2val is 4
-                                    result.value = results().m5 if H2val is 5
-                                    result.value = results().n5 if H2val is 6
+                                    result.value = results().UUU5 if H2val is 0
+                                    result.value = results().I5 if H2val is 1
+                                    result.value = results().JJ5 if H2val is 2
+                                    result.value = results().K5 if H2val is 3
+                                    result.value = results().L5 if H2val is 4
+                                    result.value = results().M5 if H2val is 5
+                                    result.value = results().N5 if H2val is 6
                 return yes
 
             if currentBlock.value is 2
