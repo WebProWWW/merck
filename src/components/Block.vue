@@ -15,8 +15,13 @@ export default
             type: Object
         isResult:
             type: [Boolean, Number]
+            default: no
         isApply:
             type: [Boolean, Number]
+            default: no
+        isApplyError:
+            type: [Boolean, Number]
+            default: no
     emits: ['navigate', 'show-result', 'item-event', 'apply']
 
     setup: (props, context) ->
@@ -111,6 +116,12 @@ export default
 
         <div v-for="(item, i) in items">
             <item :model="item" :index="i" @item-event="onItemEvent"/>
+        </div>
+
+        <div class="c-text-center mt-sm-15 mb-15" v-if="isApply && isApplyError">
+            Неверное сочетание ответов.
+            <br>
+            Пожалуйста, перепроверьте УЗ-характеристики образования.
         </div>
 
         <div class="row g-5 justify-content-center mt-sm-15">

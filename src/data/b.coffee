@@ -463,6 +463,11 @@ export default -> [
                     label: ''
                     options: [
                         {
+                            label: 'Не указана'
+                            val: 0
+                            selected: no
+                        }
+                        {
                             label: 'Кистозная или почти полностью кистозная'
                             val: 1
                             selected: no
@@ -502,6 +507,11 @@ export default -> [
                     val: ''
                     label: ''
                     options: [
+                        {
+                            label: 'Не указана'
+                            val: 0
+                            selected: no
+                        }
                         {
                             label: 'Анэхогенная'
                             val: 1
@@ -549,6 +559,11 @@ export default -> [
                     label: ''
                     options: [
                         {
+                            label: 'Не указана'
+                            val: 0
+                            selected: no
+                        }
+                        {
                             label: 'Шире, чем выше'
                             val: 1
                             selected: no
@@ -576,6 +591,11 @@ export default -> [
                     val: ''
                     label: ''
                     options: [
+                        {
+                            label: 'Не указан'
+                            val: 0
+                            selected: no
+                        }
                         {
                             label: 'Ровный'
                             val: 1

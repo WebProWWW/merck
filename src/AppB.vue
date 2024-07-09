@@ -26,6 +26,7 @@ export default
         isOpenResult = ref no
         isResult = ref no
         isApply = ref no
+        isApplyError = ref no
         isOpenTirads = ref no
         # isResult = ref yes
         result = ref {}
@@ -144,6 +145,7 @@ export default
                 # E2.field.val = 5
                 # F2.field.val = 11
                 # G2.field.val = 1
+                # H2val = 3
                 # TEST END
 
                 if .4 <= A2val
@@ -164,15 +166,15 @@ export default
                     if 100 < D2val
                         result.value = results().G5
                     if (isM and 12 > D2val) or (isW and 5 > D2val)
-                        if 20 > C2val
+                        if C2val < 20
                             H2.active = yes
-                            result.value = results().H5 if H2val is 0
-                            result.value = results().I5 if H2val is 1
-                            result.value = results().J5 if H2val is 2
-                            result.value = results().K5 if H2val is 3
-                            result.value = results().L5 if H2val is 4
-                            result.value = results().M5 if H2val is 5
-                            result.value = results().N5 if H2val is 6
+                            result.value = results().H5   if H2val is 0
+                            result.value = results().III5 if H2val is 1
+                            result.value = results().JJJ5 if H2val is 2
+                            result.value = results().KKK5 if H2val is 3
+                            result.value = results().LLL5 if H2val is 4
+                            result.value = results().MMM5 if H2val is 5
+                            result.value = results().NNN5 if H2val is 6
                         if 20 <= C2val
                             E2.active = yes
                             F2.active = yes
@@ -267,19 +269,39 @@ export default
             if currentBlock.value is 3
                 prevBlock = 1
                 isApply.value = yes
+                isApplyError.value = no
                 tiradsVal = 0
                 A4val = Number String(A4.field.val)
                 B4val = Number String(B4.field.val)
                 C4val = Number String(C4.field.val)
                 D4val = Number String(D4.field.val)
-                tiradsVal = 2 if A4val in [1,2,3,4]
-                tiradsVal = 2 if B4val in [1]
-                tiradsVal = 3 if B4val in [2,3]
-                tiradsVal = 4 if B4val in [4]
-                tiradsVal = 5 if B4val in [5]
-                tiradsVal = 5 if C4val in [1,2]
-                tiradsVal = 5 if D4val in [1,2,3,4]
-                tiradsVal = 5 if E4.field.val is 1
+                E4yes = E4.field.val is 1
+                E4no = E4.field.val is 0
+                A4is1 = A4val is 1
+                A4is2 = A4val is 2
+                A4is3 = A4val is 3
+                A4is4 = A4val is 4
+                B4is1 = B4val is 1
+                B4is2 = B4val is 2
+                B4is3 = B4val is 3
+                B4is4 = B4val is 4
+                B4is5 = B4val is 5
+                C4is1 = C4val is 1
+                C4is2 = C4val is 2
+                D4is1 = D4val is 1
+                D4is2 = D4val is 2
+                D4is3 = D4val is 3
+                D4is4 = D4val is 4
+                if A4is1 and B4is1 and C4is1 and (D4is1 or D4is2) and E4no
+                    tiradsVal = 2
+                if A4is2 and (B4is2 or B4is3 or B4is4) and C4is1 and (D4is1 or D4is2) and E4no
+                    tiradsVal = 2
+                if (A4is3 or A4is4) and (B4is2 or B4is3) and C4is1 and (D4is1 or D4is2) and E4no
+                    tiradsVal = 3
+                if (A4is3 or A4is4) and B4is4 and C4is1 and (D4is1 or D4is2) and E4no
+                    tiradsVal = 4
+                if (A4is2 or A4is3 or A4is4) and (B4is5 or C4is2 or (D4is3 or D4is4) or E4yes)
+                    tiradsVal = 5
                 return yes
             yes
 
@@ -313,6 +335,9 @@ export default
             yes
 
         onApply = () ->
+            if tiradsVal is 0
+                isApplyError.value = yes
+                return yes
             onNavigate -1
             yes
 
@@ -329,6 +354,7 @@ export default
             onTirads
             onApply
             isApply
+            isApplyError
             onShowResult
             onItemEvent
             result
@@ -343,6 +369,7 @@ export default
         :model="blocks[currentBlock]"
         :is-result="isResult"
         :is-apply="isApply"
+        :is-apply-error="isApplyError"
         @navigate="onNavigate"
         @show-result="onShowResult"
         @item-event="onItemEvent"
@@ -381,13 +408,8 @@ export default
                     <div v-if="result.info">
                         <div class="c-result-info">
                             <img class="c-result-info-icon" width="23" height="23" src="@/img/i-info.svg">
-                            <div>
-                                {{result.info}}
-                            </div>
+                            <div v-html="result.info"></div>
                         </div>
-                        <btn class="c-btn-primary">
-                            Список литературы
-                        </btn>
                     </div><!-- v-if -->
                     <div v-else>&nbsp;</div>
                 </div>
