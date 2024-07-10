@@ -129,31 +129,27 @@ export default
                 H2.active = no
                 I2.active = no
                 A2val = Number String(A2.field.val).replace ',', '.'
-
-                # TEST START
-                # A2val = .1
-                # TEST END
-
-                if 0 <= A2val < .4
-                    result.value = results().A5
-
                 # TEST START
                 # A2val = .5
                 # B2.field.val = 1
                 # D2.field.val = 11
-                # C2.field.val = 21
+                # C2.field.val = 18
                 # E2.field.val = 5
                 # F2.field.val = 11
                 # G2.field.val = 1
                 # H2val = 3
                 # TEST END
+                C2val = Number String(C2.field.val).replace ',', '.'
+                isDisc = C2val < 18
+
+                if 0 <= A2val < .4
+                    result.value = results(0, isDisc).A5
 
                 if .4 <= A2val
                     if tiradsVal
                         E2.field.val = tiradsVal
                         tiradsVal = 0
                     D2.active = yes
-                    C2val = Number String(C2.field.val).replace ',', '.'
                     D2val = Number String(D2.field.val).replace ',', '.'
                     E2val = Number String(E2.field.val).replace ',', '.'
                     F2val = Number String(F2.field.val).replace ',', '.'
@@ -162,70 +158,70 @@ export default
                     isM = B2.field.val is 1
                     isW = B2.field.val is 2
                     if (isM and (12 <= D2val <= 100)) or (isW and (5 <= D2val <= 100))
-                        result.value = results().F5
+                        result.value = results(0, isDisc).F5
                     if 100 < D2val
-                        result.value = results().G5
+                        result.value = results(0, isDisc).G5
                     if (isM and 12 > D2val) or (isW and 5 > D2val)
                         if C2val < 20
                             H2.active = yes
-                            result.value = results().H5   if H2val is 0
-                            result.value = results().III5 if H2val is 1
-                            result.value = results().JJJ5 if H2val is 2
-                            result.value = results().KKK5 if H2val is 3
-                            result.value = results().LLL5 if H2val is 4
-                            result.value = results().MMM5 if H2val is 5
-                            result.value = results().NNN5 if H2val is 6
+                            result.value = results(0, isDisc).H5   if H2val is 0
+                            result.value = results(0, isDisc).III5 if H2val is 1
+                            result.value = results(0, isDisc).JJJ5 if H2val is 2
+                            result.value = results(0, isDisc).KKK5 if H2val is 3
+                            result.value = results(0, isDisc).LLL5 if H2val is 4
+                            result.value = results(0, isDisc).MMM5 if H2val is 5
+                            result.value = results(0, isDisc).NNN5 if H2val is 6
                         if 20 <= C2val
                             E2.active = yes
                             F2.active = yes
                             if E2val is 2
-                                result.value = results().O5 if 5 <= F2val <= 10
-                                result.value = results().P5 if 10 < F2val
+                                result.value = results(0, isDisc).O5 if 5 <= F2val <= 10
+                                result.value = results(0, isDisc).P5 if 10 < F2val
                             if E2val is 3
-                                result.value = results().Q5 if 5 <= F2val <= 10
-                                result.value = results().R5 if 10 < F2val <= 20
+                                result.value = results(0, isDisc).Q5 if 5 <= F2val <= 10
+                                result.value = results(0, isDisc).R5 if 10 < F2val <= 20
                                 if 20 < F2val
                                     H2.active = yes
-                                    result.value = results().U5 if H2val is 0
-                                    result.value = results().II5 if H2val is 1
-                                    result.value = results().J5 if H2val is 2
-                                    result.value = results().K5 if H2val is 3
-                                    result.value = results().LL5 if H2val is 4
-                                    result.value = results().M5 if H2val is 5
-                                    result.value = results().N5 if H2val is 6
+                                    result.value = results(0, isDisc).U5 if H2val is 0
+                                    result.value = results(0, isDisc).II5 if H2val is 1
+                                    result.value = results(0, isDisc).J5 if H2val is 2
+                                    result.value = results(0, isDisc).K5 if H2val is 3
+                                    result.value = results(0, isDisc).LL5 if H2val is 4
+                                    result.value = results(0, isDisc).M5 if H2val is 5
+                                    result.value = results(0, isDisc).N5 if H2val is 6
                             if E2val is 4
-                                result.value = results().S5 if 5 <= F2val <= 15
+                                result.value = results(0, isDisc).S5 if 5 <= F2val <= 15
                                 if 15 < F2val
                                     H2.active = yes
-                                    result.value = results().UU5 if H2val is 0
-                                    result.value = results().I5 if H2val is 1
-                                    result.value = results().J5 if H2val is 2
-                                    result.value = results().KK5 if H2val is 3
-                                    result.value = results().L5 if H2val is 4
-                                    result.value = results().M5 if H2val is 5
-                                    result.value = results().N5 if H2val is 6
+                                    result.value = results(0, isDisc).UU5 if H2val is 0
+                                    result.value = results(0, isDisc).I5 if H2val is 1
+                                    result.value = results(0, isDisc).J5 if H2val is 2
+                                    result.value = results(0, isDisc).KK5 if H2val is 3
+                                    result.value = results(0, isDisc).L5 if H2val is 4
+                                    result.value = results(0, isDisc).M5 if H2val is 5
+                                    result.value = results(0, isDisc).N5 if H2val is 6
                             if E2val is 5
                                 if 5 <= F2val <= 10
                                     G2.active = yes
-                                    result.value = results().T5
+                                    result.value = results(0, isDisc).T5
                                     if G2yes
                                         H2.active = yes
-                                        result.value = results().UUU5 if H2val is 0
-                                        result.value = results().I5 if H2val is 1
-                                        result.value = results().JJ5 if H2val is 2
-                                        result.value = results().K5 if H2val is 3
-                                        result.value = results().L5 if H2val is 4
-                                        result.value = results().M5 if H2val is 5
-                                        result.value = results().N5 if H2val is 6
+                                        result.value = results(0, isDisc).UUU5 if H2val is 0
+                                        result.value = results(0, isDisc).I5 if H2val is 1
+                                        result.value = results(0, isDisc).JJ5 if H2val is 2
+                                        result.value = results(0, isDisc).K5 if H2val is 3
+                                        result.value = results(0, isDisc).L5 if H2val is 4
+                                        result.value = results(0, isDisc).M5 if H2val is 5
+                                        result.value = results(0, isDisc).N5 if H2val is 6
                                 if 10 <= F2val
                                     H2.active = yes
-                                    result.value = results().UUU5 if H2val is 0
-                                    result.value = results().I5 if H2val is 1
-                                    result.value = results().JJ5 if H2val is 2
-                                    result.value = results().K5 if H2val is 3
-                                    result.value = results().L5 if H2val is 4
-                                    result.value = results().M5 if H2val is 5
-                                    result.value = results().N5 if H2val is 6
+                                    result.value = results(0, isDisc).UUU5 if H2val is 0
+                                    result.value = results(0, isDisc).I5 if H2val is 1
+                                    result.value = results(0, isDisc).JJ5 if H2val is 2
+                                    result.value = results(0, isDisc).K5 if H2val is 3
+                                    result.value = results(0, isDisc).L5 if H2val is 4
+                                    result.value = results(0, isDisc).M5 if H2val is 5
+                                    result.value = results(0, isDisc).N5 if H2val is 6
                 return yes
 
             if currentBlock.value is 2
