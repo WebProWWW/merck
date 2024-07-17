@@ -97,7 +97,7 @@ export default -> [
                     type: 'text'
                     placeholder: 'от 18 до 100'
                     val: ''
-                    validate: (val) -> validateNumber val, 0, 100
+                    validate: (val) -> validateNumber val, 18, 100
             }
             # D2
             {
