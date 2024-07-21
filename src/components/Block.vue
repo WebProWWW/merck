@@ -22,6 +22,9 @@ export default
         isApplyError:
             type: [Boolean, Number]
             default: no
+        isAgeError:
+            type: [Boolean, Number]
+            default: no
     emits: ['navigate', 'show-result', 'item-event', 'apply']
 
     setup: (props, context) ->
@@ -122,6 +125,12 @@ export default
             Неверное сочетание ответов.
             <br>
             Пожалуйста, перепроверьте УЗ-характеристики образования.
+        </div>
+
+        <div class="c-text-center mt-sm-15 mb-15 em-9" v-if="isAgeError">
+            Этот калькулятор предназначен для взрослых пациентов и не рассчитан для лиц моложе&nbsp;18&nbsp;лет.
+            <br>
+            Пожалуйста, измените указанный возраст.
         </div>
 
         <div class="row g-5 justify-content-center mt-sm-15">

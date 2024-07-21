@@ -23,6 +23,7 @@ export default
         nextBlock = 1
         prevBlock = 0
         blocks = reactive data()
+        isAgeError = ref no
         isOpenResult = ref no
         isResult = ref no
         isApply = ref no
@@ -140,6 +141,7 @@ export default
                 # H2val = 3
                 # TEST END
                 C2val = Number String(C2.field.val).replace ',', '.'
+                isAgeError.value = 0 < C2val < 18
                 isDisc = C2val < 18
 
                 if 0 <= A2val < .4
@@ -344,6 +346,7 @@ export default
             blocks
             onResetData
             onNavigate
+            isAgeError
             isOpenResult
             isResult
             isOpenTirads
@@ -366,6 +369,7 @@ export default
         :is-result="isResult"
         :is-apply="isApply"
         :is-apply-error="isApplyError"
+        :is-age-error="isAgeError"
         @navigate="onNavigate"
         @show-result="onShowResult"
         @item-event="onItemEvent"

@@ -21,6 +21,7 @@ export default
         currentBlock = ref 0
         nextBlock = 1
         blocks = reactive data()
+        isAgeError = ref no
         isOpenResult = ref no
         isResult = ref no
         result = ref {}
@@ -124,6 +125,8 @@ export default
             A1val = Number A1.field.val
             B1val = Number B1.field.val
 
+
+            isAgeError.value = 0 < A1val < 18
             isResult.value = no
             result.value = results().zero
 
@@ -557,6 +560,7 @@ export default
             blocks
             onResetData
             onNavigate
+            isAgeError
             isOpenResult
             isResult
             onShowResult
@@ -571,6 +575,7 @@ export default
     <block
         :model="blocks[currentBlock]"
         :is-result="isResult"
+        :is-age-error="isAgeError"
         @navigate="onNavigate"
         @show-result="onShowResult"
     />
