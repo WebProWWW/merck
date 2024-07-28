@@ -1,12 +1,17 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-body
-    margin 0
-    font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-    font-size 1rem
-    font-weight 300
-    -webkit-text-size-adjust 100%
-    -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+// body
+//     margin 0
+//     font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+//     // font-family Montserrat, Arial, sans-serif
+//     font-size 1rem
+//     font-weight 300
+//     -webkit-text-size-adjust 100%
+//     -webkit-tap-highlight-color rgba(0, 0, 0, 0)
+
+.c-wrapper
+    font-family Montserrat, Arial, sans-serif
+    font-weight 500
 
 .c-wrapper sup
     font-size .7em
@@ -26,7 +31,6 @@ body
 
 .c-wrapper *
     box-sizing border-box
-    font-weight 300
 
 
 .c-text-center
@@ -79,7 +83,7 @@ body
     font-size 13px
     position relative
     color #522583
-    font-weight 500
+    font-weight 600
     z-index 5
 
 .c-progress-level
@@ -113,9 +117,9 @@ body
     width 50px
     border-radius 10px
     background #F5F5F5
-    font-size 20px
+    font-size 23px
     color #522583
-    font-weight 900
+    font-weight 800
     text-align center
 
 .c-item-label-text
@@ -126,6 +130,7 @@ body
     margin-bottom 15px
     margin-top -10px
     font-size 11px
+    font-weight 400
     color #8E8E8E
 
 
@@ -137,13 +142,14 @@ body
     outline none
     trans()
     mpd(0 0 15px, 15px 20px)
-    font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    // font-family system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    font-family Montserrat, Arial, sans-serif
     width 100%
     border 1px solid #EDEDED
     border-radius 50px
     background #ffffff
     font-size 14px
-    font-weight 300
+    font-weight 400
 
 .c-field-input::placeholder
     color #A7A7A7
@@ -159,7 +165,7 @@ body
     border-radius 50px
     background #ffffff
     font-size 14px
-    font-weight 300
+    font-weight 400
     white-space nowrap
     overflow hidden
     text-overflow ellipsis
@@ -194,6 +200,7 @@ body
     background white
     box-shadow 0 0 10px 0 alpha(black, .1)
     font-size 14px
+    font-weight 400
     z-index 100
     opacity 0
     visibility hidden
@@ -225,6 +232,7 @@ body
     background white
     border-radius 50px
     font-size 14px
+    font-weight 400
     text-align center
     user-select none
     cursor pointer
@@ -239,6 +247,7 @@ body
     mpd(0 0 15px, 15px 20px)
     border-radius 50px
     font-size 14px
+    font-weight 400
     text-align center
     user-select none
     cursor pointer
@@ -303,6 +312,10 @@ body
 // // .is-compact .fancybox__content>.f-button.is-close-btn
 // //     background-color transparent
 
+.c-modal
+    font-weight 400
+    font-family Montserrat, Arial, sans-serif
+
 .c-modal-tirads
     max-width 1150px
     width 100%
@@ -310,7 +323,7 @@ body
     background-color white
     border-radius 25px
     line-height 1.1
-    font-weight 300
+    font-weight 400
 
 // .c-tirads-body
 //     mpd(0, 0 0 1px, flex)

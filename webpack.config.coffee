@@ -6,7 +6,7 @@ HtmlWebpackPlugin = require 'html-webpack-plugin'
 module.exports = (env, argv) ->
 
     src = path.resolve __dirname, "src"
-    dist = path.resolve __dirname, "public_html"
+    dist = path.resolve __dirname, "dist"
 
     entry:
         'calc-a': "#{src}/index-a.coffee"
@@ -15,6 +15,7 @@ module.exports = (env, argv) ->
     resolve: alias: '@': src
 
     # optimization:
+    #     minimize: no
     #     runtimeChunk: 'single'
 
     output:
