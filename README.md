@@ -20,8 +20,6 @@
 
 Файлы подключаются с помощью сервиса jsDelivr https://www.jsdelivr.com/github
 
-https://github.com/WebProWWW/merck/raw/main/example-tilda.mov
-
 ## Разработка и сборка
 
 После установки Node модулей `npm install`
