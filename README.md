@@ -20,7 +20,7 @@
 
 Файлы подключаются с помощью сервиса jsDelivr https://www.jsdelivr.com/github
 
-https://webprowww.github.io/projects/merck/example-tilda.mov
+[![Видео пример Tilda](https://webprowww.github.io/projects/merck/cover-720.jpg)](https://webprowww.github.io/projects/merck/example-tilda.mov)
 
 ## Разработка и сборка
 
